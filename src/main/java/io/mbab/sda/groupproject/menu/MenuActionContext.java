@@ -1,10 +1,10 @@
 package io.mbab.sda.groupproject.menu;
 
-import io.mbab.sda.groupproject.menu.action.CreateCityAction;
+import io.mbab.sda.groupproject.menu.action.CreateCdAction;
 import io.mbab.sda.groupproject.menu.action.MainAction;
 import io.mbab.sda.groupproject.menu.action.MenuAction;
-import io.mbab.sda.groupproject.menu.action.ViewCitiesAction;
-import io.mbab.sda.groupproject.repository.CityRepository;
+import io.mbab.sda.groupproject.menu.action.ViewCdsAction;
+import io.mbab.sda.groupproject.repository.CdRepository;
 import io.mbab.sda.groupproject.repository.CrudRepositoryFactory;
 import lombok.SneakyThrows;
 
@@ -33,10 +33,10 @@ public class MenuActionContext {
   private void initHolder(CustomScanner scanner, CrudRepositoryFactory repositoryFactory) {
     holder.put(MainAction.class, new MainAction(scanner, this));
     holder.put(
-        CreateCityAction.class,
-        new CreateCityAction(scanner, this, repositoryFactory.get(CityRepository.class)));
+        CreateCdAction.class,
+        new CreateCdAction(scanner, this, repositoryFactory.get(CdRepository.class)));
     holder.put(
-        ViewCitiesAction.class,
-        new ViewCitiesAction(this, repositoryFactory.get(CityRepository.class)));
+        ViewCdsAction.class,
+        new ViewCdsAction(this, repositoryFactory.get(CdRepository.class)));
   }
 }

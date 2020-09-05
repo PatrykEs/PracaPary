@@ -1,24 +1,25 @@
 package io.mbab.sda.groupproject.menu.action;
 
 import io.mbab.sda.groupproject.menu.MenuActionContext;
-import io.mbab.sda.groupproject.repository.CityRepository;
+import io.mbab.sda.groupproject.repository.CdRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ViewCitiesAction implements MenuAction {
+public class ViewCdsAction implements MenuAction {
 
   private final MenuActionContext ctx;
-  private final CityRepository repository;
+  private final CdRepository repository;
 
   @Override
   public void execute() {
-    var cities = repository.getAll();
+    var cds = repository.getAll();
 
-    if (cities.isEmpty()) {
+    if (cds.isEmpty()) {
       System.out.println("Brak danych do wyświetlenia");
     } else {
       System.out.println("\n");
-      cities.forEach(System.out::println);
+      cds.forEach(System.out::println);
+
       System.out.println("\n");
     }
 

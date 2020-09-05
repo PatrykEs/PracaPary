@@ -3,6 +3,7 @@ package io.mbab.sda.groupproject.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -23,8 +24,7 @@ public class Cd {
     @Column(length = 64, nullable = false)
     private String albumName;
 
-    private int albumYear;
+    @Column(length = 4, nullable = false)
+    private LocalDate albumDate;
 
-  //  @OneToMany
-    //List<Song> albumTrack;
 }

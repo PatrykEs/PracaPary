@@ -1,13 +1,13 @@
 package io.mbab.sda.groupproject.repository;
 
-import io.mbab.sda.groupproject.entity.City;
+import io.mbab.sda.groupproject.entity.Cd;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class CityRepository implements CrudRepository<Cd, Integer> {
+public class CdRepository implements CrudRepository<Cd, Integer> {
 
   private final EntityManager em;
 
@@ -31,9 +31,10 @@ public class CityRepository implements CrudRepository<Cd, Integer> {
   }
 
   @Override
-  public Cdupdate(Cd entity) {
+  public Cd update(Cd entity) {
     return null;
   }
+
 
   @Override
   public void delete(Integer o) {}
