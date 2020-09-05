@@ -7,7 +7,7 @@ import io.mbab.sda.groupproject.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class CreateCityAction implements MenuAction {
+public class CreateCdAction implements MenuAction {
 
   private final CustomScanner scanner;
   private final MenuActionContext ctx;
