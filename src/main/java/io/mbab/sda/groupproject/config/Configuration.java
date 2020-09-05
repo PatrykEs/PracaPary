@@ -2,6 +2,7 @@ package io.mbab.sda.groupproject.config;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import io.mbab.sda.groupproject.entity.City;
+import lombok.*;
 
 import javax.sql.DataSource;
 
@@ -9,7 +10,7 @@ public final class Configuration {
   private static final String DB_URL =
       "jdbc:mysql://localhost:3306/group_project?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true";
   private static final String DB_USER_NAME = "root";
-  private static final String DB_PASSWORD = "root";
+  private static final String DB_PASSWORD = "Hanusia";
 
   private static DataSource dataSource;
 
