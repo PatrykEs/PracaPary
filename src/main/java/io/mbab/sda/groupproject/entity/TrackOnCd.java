@@ -1,10 +1,9 @@
 package io.mbab.sda.groupproject.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Getter
@@ -12,22 +11,21 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cd {
+public class TrackOnCd {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(length = 64, nullable = false)
-    private String bandName;
+    private String trackName;
 
-    @Column(length = 64, nullable = false)
-    private String albumName;
+    @Column(columnDefinition = "int default 0")
+    private Integer trackTime;
 
-    @Column(length = 4, nullable = false)
-    private LocalDate albumDate;
 
-    @OneToMany
-  List<TrackOnCd> trackOnCd;
+    @ManyToOne
+    private Cd cd;
+
 
 }

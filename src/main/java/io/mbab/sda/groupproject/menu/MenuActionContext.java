@@ -1,12 +1,9 @@
 package io.mbab.sda.groupproject.menu;
 
-import io.mbab.sda.groupproject.menu.action.CreateCdAction;
-import io.mbab.sda.groupproject.menu.action.MainAction;
-import io.mbab.sda.groupproject.menu.action.MenuAction;
-import io.mbab.sda.groupproject.menu.action.ViewCdsAction;
+import io.mbab.sda.groupproject.menu.action.*;
 import io.mbab.sda.groupproject.repository.CdRepository;
 import io.mbab.sda.groupproject.repository.CrudRepositoryFactory;
-import lombok.SneakyThrows;
+import io.mbab.sda.groupproject.repository.TrackOnCdRepository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,5 +35,12 @@ public class MenuActionContext {
     holder.put(
         ViewCdsAction.class,
         new ViewCdsAction(this, repositoryFactory.get(CdRepository.class)));
+
+    holder.put(
+            CreateTrackOnCdAction.class,
+            new CreateTrackOnCdAction(scanner, this, repositoryFactory.get(TrackOnCdRepository.class)));
+    holder.put(
+            ViewTracksOnCd.class,
+            new ViewTracksOnCd(this, repositoryFactory.get(TrackOnCdRepository.class)));
   }
 }
