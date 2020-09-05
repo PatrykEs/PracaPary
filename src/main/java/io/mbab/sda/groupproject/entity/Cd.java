@@ -3,6 +3,7 @@ package io.mbab.sda.groupproject.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -10,15 +11,20 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class City {
+public class Cd {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(length = 64, nullable = false)
-    private String name;
+    private String bandName;
 
     @Column(length = 64, nullable = false)
-    private String country;
+    private String albumName;
+
+    private int albumYear;
+
+  //  @OneToMany
+    //List<Song> albumTrack;
 }

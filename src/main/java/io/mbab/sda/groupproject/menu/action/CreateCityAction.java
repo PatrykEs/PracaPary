@@ -1,6 +1,6 @@
 package io.mbab.sda.groupproject.menu.action;
 
-import io.mbab.sda.groupproject.entity.City;
+import io.mbab.sda.groupproject.entity.Cd;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import io.mbab.sda.groupproject.repository.CityRepository;
@@ -16,23 +16,23 @@ public class CreateCityAction implements MenuAction {
   @Override
   public void execute() {
     System.out.println("0) Przejdź do poprzedniego menu");
-    System.out.println("Podaj nazwę miasta:");
+    System.out.println("Podaj nazwę zespołu:");
 
     var input = scanner.nextLine();
 
     if (pressedZero(input)) return;
 
-    var builder = City.builder().name(input);
+    var builder = Cd.builder().bandName(input);
 
-    System.out.println("Podaj nazwę państwa:");
+    System.out.println("Podaj nazwę albumu:");
 
     input = scanner.nextLine();
 
     if (pressedZero(input)) return;
 
-    var city = builder.country(input).build();
+    var cd = builder.albumName(input).build();
 
-    repository.create(city);
+    repository.create(cd);
     ctx.use(MainAction.class).execute();
   }
 
