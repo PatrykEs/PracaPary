@@ -30,11 +30,11 @@ public class CreateTrackOnCdAction implements MenuAction {
 
         if (pressedZero(input)) return;
 
-        builder.trackTime(Integer.parseInt(input));
+        var trackOnCd=  builder.trackTime(Integer.parseInt(input)).build();
 
 
 
-        var trackOnCd = builder.build();
+
 
         repository.create(trackOnCd);
         ctx.use(MainAction.class).execute();
@@ -47,13 +47,6 @@ public class CreateTrackOnCdAction implements MenuAction {
         }
         return false;
     }
+    
 
-
-    private boolean pressedZero(int inputInt) {
-        if (inputInt == 0) {
-            ctx.use(MainAction.class).execute();
-            return true;
-        }
-        return false;
-    }
 }
