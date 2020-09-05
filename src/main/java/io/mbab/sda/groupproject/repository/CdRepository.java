@@ -13,7 +13,7 @@ public class CdRepository implements CrudRepository<Cd, Integer> {
 
   @Override
   public List<Cd> getAll() {
-    return em.createQuery("FROM City", Cd.class)
+    return em.createQuery("FROM Cd", Cd.class)
             .getResultList();
   }
 

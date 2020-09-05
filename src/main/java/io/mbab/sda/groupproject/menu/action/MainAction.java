@@ -15,6 +15,9 @@ public class MainAction implements MenuAction {
     System.out.println("0) Zamknij aplikację");
     System.out.println("1) Dodaj album");
     System.out.println("2) Wyswietl album");
+    System.out.println("3) Dodaj utwór");
+    System.out.println("4) Wyswietl utwór");
+
 
     var input = scanner.nextLine();
 
@@ -30,6 +33,16 @@ public class MainAction implements MenuAction {
 
     if (input.equals("2")) {
       ctx.use(ViewCdsAction.class).execute();
+      return;
+    }
+
+    if (input.equals("3")) {
+      ctx.use(CreateTrackOnCdAction.class).execute();
+      return;
+    }
+
+    if (input.equals("4")) {
+      ctx.use(ViewTracksOnCd.class).execute();
       return;
     }
 
