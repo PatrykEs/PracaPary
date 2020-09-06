@@ -1,6 +1,5 @@
 package io.mbab.sda.groupproject.entity;
 
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,19 +12,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class TrackOnCd {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    @Column(length = 64, nullable = false)
-    private String trackName;
+  @Column(length = 64, nullable = false)
+  private String trackName;
 
-    @Column(columnDefinition = "int default 0")
-    private Integer trackTime;
+  @Column(columnDefinition = "int default 0")
+  private Integer trackTime;
 
-
-    @ManyToOne
-    private Cd cd;
-
-
+  @ManyToOne
+  private Cd cd;
 }

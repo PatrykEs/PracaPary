@@ -52,7 +52,7 @@ public class JpaUtil {
     props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
     props.put(Environment.DATASOURCE, dataSource);
     props.put(Environment.SHOW_SQL, "true");
-    props.put(Environment.HBM2DDL_AUTO, "create-drop");
+    props.put(Environment.HBM2DDL_AUTO, "create-drop"); // none
 
     return props;
   }

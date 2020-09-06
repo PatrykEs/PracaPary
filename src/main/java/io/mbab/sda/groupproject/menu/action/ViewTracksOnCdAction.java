@@ -5,7 +5,7 @@ import io.mbab.sda.groupproject.repository.TrackOnCdRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ViewTracksOnCd implements MenuAction {
+public class ViewTracksOnCdAction implements MenuAction {
 
     private final MenuActionContext ctx;
     private final TrackOnCdRepository repository;

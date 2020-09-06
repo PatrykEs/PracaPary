@@ -1,12 +1,14 @@
 package io.mbab.sda.groupproject.menu.action;
 
 import io.mbab.sda.groupproject.entity.Cd;
+import io.mbab.sda.groupproject.entity.TrackOnCd;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import io.mbab.sda.groupproject.repository.CdRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @RequiredArgsConstructor
 public class CreateCdAction implements MenuAction {
@@ -40,7 +42,8 @@ public class CreateCdAction implements MenuAction {
 
     if (pressedZero(input)) return;
 
-    var album = builder.albumDate(LocalDate.parse(input)).build();
+    builder.albumDate(LocalDate.parse(input));
+    var album = builder.tracksOnCd(new ArrayList<TrackOnCd>()).build();
 
     repository.create(album);
     ctx.use(MainAction.class).execute();
@@ -48,15 +51,6 @@ public class CreateCdAction implements MenuAction {
 
   private boolean pressedZero(String input) {
     if (input.equals("0")) {
-      ctx.use(MainAction.class).execute();
-      return true;
-    }
-    return false;
-  }
-
-
-  private boolean pressedZero(int inputInt) {
-    if (inputInt == 0) {
       ctx.use(MainAction.class).execute();
       return true;
     }
