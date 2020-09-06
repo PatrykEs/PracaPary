@@ -23,8 +23,8 @@ public class SearchCdByPerformerAction implements MenuAction {
 
         if (pressedZero(input)) return;
 
-        var cd = repository.findByBand(input);
-        cd.forEach(System.out::println);
+
+        repository.findByBand(input).forEach(System.out::println);
 
         ctx.use(MainAction.class).execute();
     }
