@@ -1,6 +1,5 @@
 package io.mbab.sda.groupproject.menu.action;
 
-import io.mbab.sda.groupproject.entity.Cd;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import io.mbab.sda.groupproject.repository.CdRepository;

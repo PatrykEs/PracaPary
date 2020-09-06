@@ -1,6 +1,5 @@
 package io.mbab.sda.groupproject.repository;
 
-import io.mbab.sda.groupproject.entity.Cd;
 import io.mbab.sda.groupproject.entity.TrackOnCd;
 import lombok.RequiredArgsConstructor;
 
