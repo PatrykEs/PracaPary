@@ -7,7 +7,7 @@ import io.mbab.sda.groupproject.repository.TrackOnCdRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ViewTracksOnCdById implements MenuAction {
+public class ViewTracksOnCdByIdAction implements MenuAction {
 
     private final CustomScanner scanner;
     private final MenuActionContext ctx;

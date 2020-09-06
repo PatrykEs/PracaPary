@@ -23,6 +23,5 @@ public class TrackOnCd {
   private Integer trackTime;
 
   @ManyToOne
-  @JoinColumn(name = "cd_id")
   private Cd cd;
 }

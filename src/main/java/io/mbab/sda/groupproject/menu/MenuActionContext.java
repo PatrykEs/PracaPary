@@ -43,15 +43,15 @@ public class MenuActionContext {
             repositoryFactory.get(TrackOnCdRepository.class),
             repositoryFactory.get(CdRepository.class)));
     holder.put(
-        ViewTracksOnCd.class,
-        new ViewTracksOnCd(this, repositoryFactory.get(TrackOnCdRepository.class)));
+        ViewTracksOnCdAction.class,
+        new ViewTracksOnCdAction(this, repositoryFactory.get(TrackOnCdRepository.class)));
 
     holder.put(
-        FindCdById.class, new FindCdById(scanner, this, repositoryFactory.get(CdRepository.class)));
+        SearchCdAction.class, new SearchCdAction(scanner, this, repositoryFactory.get(CdRepository.class)));
 
     holder.put(
-        ViewTracksOnCdById.class,
-        new ViewTracksOnCdById(
+        ViewTracksOnCdByIdAction.class,
+        new ViewTracksOnCdByIdAction(
             scanner,
             this,
             repositoryFactory.get(TrackOnCdRepository.class),

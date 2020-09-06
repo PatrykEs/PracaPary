@@ -43,17 +43,17 @@ public class MainAction implements MenuAction {
     }
 
     if (input.equals("4")) {
-      ctx.use(ViewTracksOnCd.class).execute();
+      ctx.use(ViewTracksOnCdAction.class).execute();
       return;
     }
 
     if (input.equals("5")) {
-      ctx.use(FindCdById.class).execute();
+      ctx.use(SearchCdAction.class).execute();
       return;
     }
 
     if (input.equals("6")) {
-      ctx.use(ViewTracksOnCdById.class).execute();
+      ctx.use(ViewTracksOnCdByIdAction.class).execute();
       return;
     }
 
