@@ -1,6 +1,7 @@
 package io.mbab.sda.groupproject.repository;
 
 import io.mbab.sda.groupproject.entity.Cd;
+import io.mbab.sda.groupproject.entity.TrackOnCd;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;
@@ -39,4 +40,9 @@ public class CdRepository implements CrudRepository<Cd, Integer> {
 
   @Override
   public void delete(Integer o) {}
+
+  public List<Cd> findByBand(String bandName) {
+    String jpql = "FROM Cd cd  WHERE cd.bandName = :bandName";
+    return em.createQuery(jpql, Cd.class).setParameter("bandName", bandName).getResultList();
+  }
 }

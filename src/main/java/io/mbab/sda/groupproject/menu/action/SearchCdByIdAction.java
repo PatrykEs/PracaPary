@@ -7,7 +7,7 @@ import io.mbab.sda.groupproject.repository.CdRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class SearchCdAction implements MenuAction {
+public class SearchCdByIdAction implements MenuAction {
 
   private final CustomScanner scanner;
   private final MenuActionContext ctx;
@@ -23,6 +23,7 @@ public class SearchCdAction implements MenuAction {
 
     Cd cd = repository.findById(Integer.parseInt(input));
     System.out.println(cd);
+    ctx.use(MainAction.class).execute();
   }
 
   private boolean pressedZero(String input) {

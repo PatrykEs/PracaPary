@@ -19,6 +19,7 @@ public class MainAction implements MenuAction {
     System.out.println("4) Wyswietl utwory");
     System.out.println("5) Wyswietl album po id");
     System.out.println("6) Wyswietl utwory z albumu o podanym id");
+    System.out.println("7) Wyswietl  albumy o po nazwie wykonawcy");
 
     var input = scanner.nextLine();
 
@@ -48,12 +49,17 @@ public class MainAction implements MenuAction {
     }
 
     if (input.equals("5")) {
-      ctx.use(SearchCdAction.class).execute();
+      ctx.use(SearchCdByIdAction.class).execute();
       return;
     }
 
     if (input.equals("6")) {
       ctx.use(ViewTracksOnCdByIdAction.class).execute();
+      return;
+    }
+
+    if (input.equals("7")) {
+      ctx.use(SearchCdByPerformerAction.class).execute();
       return;
     }
 
