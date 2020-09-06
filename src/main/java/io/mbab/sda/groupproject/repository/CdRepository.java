@@ -4,7 +4,9 @@ import io.mbab.sda.groupproject.entity.Cd;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 public class CdRepository implements CrudRepository<Cd, Integer> {
@@ -13,13 +15,13 @@ public class CdRepository implements CrudRepository<Cd, Integer> {
 
   @Override
   public List<Cd> getAll() {
-    return em.createQuery("FROM Cd", Cd.class)
-            .getResultList();
+    return em.createQuery("FROM Cd", Cd.class).getResultList();
   }
 
   @Override
   public Cd findById(Integer id) {
-    return null;
+    String jpql = "FROM Cd cd  WHERE cd.id = :id";
+    return em.createQuery(jpql, Cd.class).setParameter("id", id).getSingleResult();
   }
 
   @Override
@@ -34,7 +36,6 @@ public class CdRepository implements CrudRepository<Cd, Integer> {
   public Cd update(Cd entity) {
     return null;
   }
-
 
   @Override
   public void delete(Integer o) {}

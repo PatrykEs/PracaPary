@@ -14,20 +14,19 @@ import java.util.List;
 @AllArgsConstructor
 public class Cd {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    @Column(length = 64, nullable = false)
-    private String bandName;
+  @Column(length = 64, nullable = false)
+  private String bandName;
 
-    @Column(length = 64, nullable = false)
-    private String albumName;
+  @Column(length = 64, nullable = false)
+  private String albumName;
 
-    @Column(length = 4, nullable = false)
-    private LocalDate albumDate;
+  @Column(length = 4, nullable = false)
+  private LocalDate albumDate;
 
-    @OneToMany
-  List<TrackOnCd> trackOnCd;
-
+  @OneToMany(mappedBy = "cd", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  List<TrackOnCd> tracksOnCd;
 }

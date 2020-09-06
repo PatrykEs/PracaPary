@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 @RequiredArgsConstructor
-public class CreateCdAction implements MenuAction {
+public class FindCdById implements MenuAction {
 
   private final CustomScanner scanner;
   private final MenuActionContext ctx;
@@ -19,34 +19,14 @@ public class CreateCdAction implements MenuAction {
 
   @Override
   public void execute() {
-    System.out.println("0) Przejdź do poprzedniego menu");
-    System.out.println("Podaj nazwę zespołu:");
+    System.out.println("Podaj id albumu:");
 
     var input = scanner.nextLine();
 
     if (pressedZero(input)) return;
 
-    var builder = Cd.builder().bandName(input);
-
-    System.out.println("Podaj nazwę albumu:");
-
-    input = scanner.nextLine();
-
-    if (pressedZero(input)) return;
-
-    builder.albumName(input);
-
-    System.out.println("Podaj datę utworzenia albumu");
-
-    input = scanner.nextLine();
-
-    if (pressedZero(input)) return;
-
-    builder.albumDate(LocalDate.parse(input));
-    var album = builder.tracksOnCd(new ArrayList<TrackOnCd>()).build();
-
-    repository.create(album);
-    ctx.use(MainAction.class).execute();
+    Cd cd = repository.findById(Integer.parseInt(input));
+    System.out.println(cd);
   }
 
   private boolean pressedZero(String input) {
