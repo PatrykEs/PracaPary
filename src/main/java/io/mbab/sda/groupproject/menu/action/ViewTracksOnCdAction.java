@@ -7,22 +7,22 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ViewTracksOnCdAction implements MenuAction {
 
-    private final MenuActionContext ctx;
-    private final TrackOnCdRepository repository;
+  private final MenuActionContext ctx;
+  private final TrackOnCdRepository repository;
 
-    @Override
-    public void execute() {
-        var cds = repository.getAll();
+  @Override
+  public void execute()  {
+    var cds = repository.getAll();
 
-        if (cds.isEmpty()) {
-            System.out.println("Brak danych do wyświetlenia");
-        } else {
-            System.out.println("\n");
-            cds.forEach(System.out::println);
+    if (cds.isEmpty()) {
+      System.out.println("Brak danych do wyświetlenia");
+    } else {
+      System.out.println("\n");
+      cds.forEach(System.out::println);
 
-            System.out.println("\n");
-        }
-
-        ctx.use(MainAction.class).execute();
+      System.out.println("\n");
     }
+
+    ctx.use(MainAction.class).execute();
+  }
 }

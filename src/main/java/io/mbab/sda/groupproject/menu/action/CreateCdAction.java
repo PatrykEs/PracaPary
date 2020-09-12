@@ -49,7 +49,7 @@ public class CreateCdAction implements MenuAction {
     ctx.use(MainAction.class).execute();
   }
 
-  private boolean pressedZero(String input) {
+  private boolean pressedZero(String input)  {
     if (input.equals("0")) {
       ctx.use(MainAction.class).execute();
       return true;

@@ -1,5 +1,7 @@
 package io.mbab.sda.groupproject.menu;
 
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.mbab.sda.groupproject.menu.action.*;
 import io.mbab.sda.groupproject.repository.CdRepository;
 import io.mbab.sda.groupproject.repository.CrudRepositoryFactory;
@@ -47,7 +49,8 @@ public class MenuActionContext {
         new ViewTracksOnCdAction(this, repositoryFactory.get(TrackOnCdRepository.class)));
 
     holder.put(
-        SearchCdByIdAction.class, new SearchCdByIdAction(scanner, this, repositoryFactory.get(CdRepository.class)));
+        SearchCdByIdAction.class,
+        new SearchCdByIdAction(scanner, this, repositoryFactory.get(CdRepository.class)));
 
     holder.put(
         ViewTracksOnCdByIdAction.class,
@@ -58,6 +61,11 @@ public class MenuActionContext {
             repositoryFactory.get(CdRepository.class)));
 
     holder.put(
-            SearchCdByPerformerAction.class, new SearchCdByPerformerAction(scanner, this, repositoryFactory.get(CdRepository.class)));
+        SearchCdByPerformerAction.class,
+        new SearchCdByPerformerAction(scanner, this, repositoryFactory.get(CdRepository.class)));
+
+    holder.put(
+        ExportCdsToJsonFile.class,
+        new ExportCdsToJsonFile(this, repositoryFactory.get(CdRepository.class), new ObjectMapper()));
   }
 }

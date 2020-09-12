@@ -9,32 +9,31 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ViewTracksOnCdByIdAction implements MenuAction {
 
-    private final CustomScanner scanner;
-    private final MenuActionContext ctx;
-    private final TrackOnCdRepository repository;
-    private final CdRepository cdRepository;
+  private final CustomScanner scanner;
+  private final MenuActionContext ctx;
+  private final TrackOnCdRepository repository;
+  private final CdRepository cdRepository;
 
-    @Override
-    public void execute() {
-        System.out.println("Podaj id albumu:");
+  @Override
+  public void execute()  {
+    System.out.println("Podaj id albumu:");
 
-        var input = scanner.nextLine();
+    var input = scanner.nextLine();
 
-        if (pressedZero(input)) return;
+    if (pressedZero(input)) return;
 
-        var tracks = repository.findByCdId(Integer.parseInt(input));
+    var tracks = repository.findByCdId(Integer.parseInt(input));
 
-           tracks.forEach(System.out::println);
+    tracks.forEach(System.out::println);
 
-        ctx.use(MainAction.class).execute();
+    ctx.use(MainAction.class).execute();
+  }
+
+  private boolean pressedZero(String input)  {
+    if (input.equals("0")) {
+      ctx.use(MainAction.class).execute();
+      return true;
     }
-
-
-    private boolean pressedZero(String input) {
-        if (input.equals("0")) {
-            ctx.use(MainAction.class).execute();
-            return true;
-        }
-        return false;
-    }
+    return false;
+  }
 }
