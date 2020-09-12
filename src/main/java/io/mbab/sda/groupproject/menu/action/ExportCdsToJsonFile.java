@@ -14,6 +14,7 @@ public class ExportCdsToJsonFile implements MenuAction {
 
   private final MenuActionContext ctx;
   private final CdRepository repository;
+  private final ObjectMapper objectMapper;
 
   @Override
   public void execute() {
@@ -23,7 +24,8 @@ public class ExportCdsToJsonFile implements MenuAction {
       System.out.println("Brak danych do zapisania");
     } else {
       System.out.println("\n");
-      ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+
+      ObjectWriter ow = objectMapper.writer().withDefaultPrettyPrinter();
       try {
         ow.writeValue(new File("C:\\Users\\HP\\Desktop\\CDs.json"), cds);
       } catch (IOException e) {

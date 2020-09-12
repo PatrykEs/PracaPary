@@ -1,6 +1,7 @@
 package io.mbab.sda.groupproject.menu;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.mbab.sda.groupproject.menu.action.*;
 import io.mbab.sda.groupproject.repository.CdRepository;
 import io.mbab.sda.groupproject.repository.CrudRepositoryFactory;
@@ -65,6 +66,6 @@ public class MenuActionContext {
 
     holder.put(
         ExportCdsToJsonFile.class,
-        new ExportCdsToJsonFile(this, repositoryFactory.get(CdRepository.class)));
+        new ExportCdsToJsonFile(this, repositoryFactory.get(CdRepository.class), new ObjectMapper()));
   }
 }
