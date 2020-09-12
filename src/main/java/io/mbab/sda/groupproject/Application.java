@@ -10,7 +10,7 @@ import io.mbab.sda.groupproject.repository.CrudRepositoryFactory;
 
 public class Application {
 
-  public static void main(String... args) throws JsonProcessingException {
+  public static void main(String... args)  {
     var emFactory =
         JpaUtil.getEntityManagerFactory(
             Configuration.getDataSource(), Configuration.getEntityClass());

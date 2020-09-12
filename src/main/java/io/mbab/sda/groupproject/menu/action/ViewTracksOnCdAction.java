@@ -1,6 +1,5 @@
 package io.mbab.sda.groupproject.menu.action;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import io.mbab.sda.groupproject.repository.TrackOnCdRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,7 @@ public class ViewTracksOnCdAction implements MenuAction {
   private final TrackOnCdRepository repository;
 
   @Override
-  public void execute() throws JsonProcessingException {
+  public void execute()  {
     var cds = repository.getAll();
 
     if (cds.isEmpty()) {

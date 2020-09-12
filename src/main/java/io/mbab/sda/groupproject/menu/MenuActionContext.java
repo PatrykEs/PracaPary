@@ -1,7 +1,6 @@
 package io.mbab.sda.groupproject.menu;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.mbab.sda.groupproject.menu.action.*;
 import io.mbab.sda.groupproject.repository.CdRepository;
 import io.mbab.sda.groupproject.repository.CrudRepositoryFactory;
@@ -24,7 +23,7 @@ public class MenuActionContext {
     return this;
   }
 
-  public void execute() throws JsonProcessingException {
+  public void execute() {
     if (action == null) throw new RuntimeException("Menu action not set");
     action.execute();
   }

@@ -1,6 +1,5 @@
 package io.mbab.sda.groupproject.menu.action;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,7 @@ public class MainAction implements MenuAction {
   private final MenuActionContext ctx;
 
   @Override
-  public void execute() throws JsonProcessingException {
+  public void execute()  {
     System.out.println("0) Zamknij aplikację");
     System.out.println("1) Dodaj album");
     System.out.println("2) Wyswietl albumy");

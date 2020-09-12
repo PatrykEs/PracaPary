@@ -1,6 +1,5 @@
 package io.mbab.sda.groupproject.menu.action;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.mbab.sda.groupproject.entity.Cd;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
@@ -15,7 +14,7 @@ public class SearchCdByIdAction implements MenuAction {
   private final CdRepository repository;
 
   @Override
-  public void execute() throws JsonProcessingException {
+  public void execute()  {
     System.out.println("Podaj id albumu:");
 
     var input = scanner.nextLine();
@@ -27,7 +26,7 @@ public class SearchCdByIdAction implements MenuAction {
     ctx.use(MainAction.class).execute();
   }
 
-  private boolean pressedZero(String input) throws JsonProcessingException {
+  private boolean pressedZero(String input)  {
     if (input.equals("0")) {
       ctx.use(MainAction.class).execute();
       return true;
