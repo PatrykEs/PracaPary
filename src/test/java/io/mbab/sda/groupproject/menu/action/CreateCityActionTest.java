@@ -1,5 +1,6 @@
 package io.mbab.sda.groupproject.menu.action;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import io.mbab.sda.groupproject.repository.CdRepository;
@@ -21,9 +22,17 @@ public class CreateCityActionTest {
         when(actionCtx.use(MainAction.class)).thenReturn(actionCtx);
 
         //when
-        testedAction.execute();
+        try {
+            testedAction.execute();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
 
         //then
-        verify(actionCtx, times(1)).use(MainAction.class).execute();
+        try {
+            verify(actionCtx, times(1)).use(MainAction.class).execute();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 }

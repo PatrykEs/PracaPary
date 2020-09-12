@@ -1,5 +1,6 @@
 package io.mbab.sda.groupproject.menu.action;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +12,7 @@ public class MainAction implements MenuAction {
   private final MenuActionContext ctx;
 
   @Override
-  public void execute() {
+  public void execute() throws JsonProcessingException {
     System.out.println("0) Zamknij aplikację");
     System.out.println("1) Dodaj album");
     System.out.println("2) Wyswietl albumy");
@@ -20,6 +21,7 @@ public class MainAction implements MenuAction {
     System.out.println("5) Wyswietl album po id");
     System.out.println("6) Wyswietl utwory z albumu o podanym id");
     System.out.println("7) Wyswietl  albumy o po nazwie wykonawcy");
+    System.out.println("8) Export albumów do pliku Json");
 
     var input = scanner.nextLine();
 
@@ -60,6 +62,11 @@ public class MainAction implements MenuAction {
 
     if (input.equals("7")) {
       ctx.use(SearchCdByPerformerAction.class).execute();
+      return;
+    }
+
+    if (input.equals("8")) {
+      ctx.use(ExportCdsToJsonFile.class).execute();
       return;
     }
 

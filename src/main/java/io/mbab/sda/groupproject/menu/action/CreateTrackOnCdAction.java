@@ -1,5 +1,6 @@
 package io.mbab.sda.groupproject.menu.action;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.mbab.sda.groupproject.entity.TrackOnCd;
 import io.mbab.sda.groupproject.menu.CustomScanner;
 import io.mbab.sda.groupproject.menu.MenuActionContext;
@@ -16,7 +17,7 @@ public class CreateTrackOnCdAction implements MenuAction {
   private final CdRepository cdrepository;
 
   @Override
-  public void execute() {
+  public void execute() throws JsonProcessingException {
     System.out.println("0) Przejdź do poprzedniego menu");
     System.out.println("Podaj nazwę utworu:");
 
@@ -47,7 +48,7 @@ public class CreateTrackOnCdAction implements MenuAction {
     ctx.use(MainAction.class).execute();
   }
 
-  private boolean pressedZero(String input) {
+  private boolean pressedZero(String input) throws JsonProcessingException {
     if (input.equals("0")) {
       ctx.use(MainAction.class).execute();
       return true;
